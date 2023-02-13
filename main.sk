@@ -1,0 +1,3 @@
+command /ks:
+    trigger:
+        send "&a&lKrazySkripts%newline%&a&lCOMING SOON"
