@@ -1,0 +1,20 @@
+on load:
+    set {ks::dupeenabled} to true
+
+on unload:
+    clear {ks::dupeenabled}
+
+command /dupe:
+    permission: ks.dupe.use, ks.*
+    permission message: "%{ks::permmsg}%"
+    cooldown: %{ks::dupecooldown}%
+    cooldown message: %{ks::dupecooldownmessage}%
+    cooldown bypass: ks.nodupecooldown, ks.*
+    usage: &cUsage: /dupe
+    trigger:
+        if the player's inventory doesn't have space for golden hoe:
+            send "&cYou don't have inventory space!"
+            cancel command cooldown
+        else:
+            give player's tool to player
+            send "%{ks::servername}% &7» &aDuped!"

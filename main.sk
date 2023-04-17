@@ -1,0 +1,152 @@
+options:
+    servername: &9&lServer Name
+    permmsg: &cNo Permission!
+# You can change these as much as you want, and should change them because you don't want it to say "Server Name"
+
+on load:
+    set {ks::servername} to {@servername}
+    set {ks::permmsg} to %{ks::servername}% &7» {@permmsg}
+    set {ks::dupecooldown} to 0
+    set {ks::dupecooldownmessage} to "&cYou are on cooldown! Wait &e%remaining time% to use the command again"
+    set {ks::rvplugin} to LuckPerms
+# DO NOT CHANGE THESE! These are default values and you are supposed to change them with /ks settings
+
+command /ks [<text>]:
+    aliases: /krazyskripts, /kskripts
+    trigger:
+        if arg-1 is not set:
+            if player has permission "ks.main" or "ks.*":
+                open chest with 6 rows named "&c&lKrazySkripts" to player
+                format slot 0 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 1 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 2 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 3 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 4 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 5 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 6 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 7 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 8 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 9 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 17 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 18 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 26 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 27 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 35 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 36 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 44 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 45 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 46 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 47 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 48 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 49 of player with book named "&e&lKrazySkripts" with lore "&eClick on this for help" to close then run [execute player command "ks help"]
+                format slot 50 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 51 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 52 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 53 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+            else:
+                send "%{ks::permmsg}%"
+
+        if arg-1 is "help":
+            if player has permission "ks.help" or "ks.*":
+                open chest with 6 rows named "&c&lKrazySkripts Help Menu" to player
+                format slot 0 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 1 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 2 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 3 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 4 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 5 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 6 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 7 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 8 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 9 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 17 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 18 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 26 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 27 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 35 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 36 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 44 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 45 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 46 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 47 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 48 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 49 of player with red concrete named "&cBack" to close then run [execute player command "ks"]
+                format slot 50 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 51 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 52 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 53 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+            else:
+                send "%{ks::permmsg}%"
+        if arg-1 is "enabledisable":
+            if player has permission "ks.enabledisable" or "ks.*":
+                open chest with 6 rows named "&c&lKrazySkripts &a&lEnable/Disable &b&lSkripts &d&lMenu" to player
+                format slot 0 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 1 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 2 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 3 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 4 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 5 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 6 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 7 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 8 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 9 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 17 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 18 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 26 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 27 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 35 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 36 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 44 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 45 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 46 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 47 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 48 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 49 of player with red concrete named "&cBack" to close then run [execute player command "ks"]
+                format slot 50 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 51 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 52 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 53 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+            else:
+                send "%{ks::permmsg}%"
+        if arg-1 is "credits":
+            if player has permision "ks.credits" or "ks.*":
+                send "              &c&lKrazySkripts &a&lCredits                "
+                send "&aCopyright (c) 2023 KrazyKleb"
+                send "&cLicensed under MIT license"
+                send "&eDupe Skript By KrazyKleb"
+                send "&eRank Vouchers And Permission Vouchers Skript is a modified version of A Skript by CoolProgrammer"
+                send "&eSpawn Skript By KrazyKleb"
+                send "&eStaffchat Skript By KrazyKleb"
+            else:
+                send "%{ks::permmsg}%"
+        if arg-1 is "settings":
+            if player has permission "ks.settings" or "ks.*":
+                open chest with 6 rows named "&c&lKrazySkripts &a&lEnable/Disable &b&lSkripts &d&lMenu" to player
+                format slot 0 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 1 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 2 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 3 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 4 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 5 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 6 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 7 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 8 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 9 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 17 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 18 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 26 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 27 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 35 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 36 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 44 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 45 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 46 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 47 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 48 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 49 of player with red concrete named "&cBack" to close then run [execute player command "ks"]
+                format slot 50 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 51 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 52 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 53 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+            else:
+                send "%{ks::permmsg}%"
