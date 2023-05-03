@@ -20,6 +20,12 @@ command /ks [<text>]:
     trigger:
         if arg-1 is not set:
             if player has permission "ks.main" or "ks.*":
+                set {_value1} to "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjcwNWZkOTRhMGM0MzE5MjdmYjRlNjM5YjBmY2ZiNDk3MTdlNDEyMjg1YTAyYjQzOWUwMTEyZGEyMmIyZTJlYyJ9fX0="
+                set {_skull1} to skull from skin with value {_value2} signature ""
+                set data value of {_skull1} to 3
+                set {_value2} to "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWZmMzE0MzFkNjQ1ODdmZjZlZjk4YzA2NzU4MTA2ODFmOGMxM2JmOTZmNTFkOWNiMDdlZDc4NTJiMmZmZDEifX19"
+                set {_skull2} to skull from skin with value {_value2} signature ""
+                set data value of {_skull2} to 3
                 open chest with 6 rows named "&c&lKrazySkripts" to player
                 format slot 0 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
                 format slot 1 of player with green stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
@@ -42,11 +48,13 @@ command /ks [<text>]:
                 format slot 46 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
                 format slot 47 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
                 format slot 48 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
-                format slot 49 of player with book named "&e&lKrazySkripts" with lore "&eClick on this for help" to close then run [execute player command "ks help"]
+                format slot 49 of player with {_skull1} named "&e&lHelp" with lore "&eClick on this for help" to close then run [execute player command "ks help"]
                 format slot 50 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
                 format slot 51 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
                 format slot 52 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
                 format slot 53 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
+                format slot 10 of player with {_skull2} named "&a&lEnable&e&l/&c&lDisable &e&lSkripts" to close then run [execute player command "ks enabledisable"]
+                format slot 11 of player with ("KrazyKleb" parsed as offline)' skull named 
             else:
                 send "%{ks::main::permmsg}%"
 
