@@ -2,30 +2,29 @@ options:
     rvitem: paper named "&e&lPERMISSION VOUCHER" with lore "&ePermission &7» &f%arg-2%"
 
 on load:
-    set {ks::pvenabled} to true
+    set {ks::pv::enabled} to true
 
 on unload:
-    clear {ks::pvenabled}
+    clear {ks::pv::enabled}
 
 on right click with {@rvitem}:
-    if {ks::rvplugin} is LuckPerms:
+    if {ks::rv::plugin} is LuckPerms:
         set {_c} to "lp user %player% permission set %permission%"
+        set {_p} to (2nd element of ((1st element of uncolored lore of event-item) split at " » "))
+        replace all "%permission%" in {_c} with {_p}
+        console command {_c}
+        remove 1 from tool's item amount
+        send "%{ks::main::servername}% &7» &aYou successfully claimed this voucher!"
     else:
-        send "%{ks::servername}% &7» &cError! Your Permission plugin isn't supported yet! Consider installing LuckPerms as More Permission plugins will be added soon"
+        send "%{ks::main::servername}% &7» &cError! Your Permission plugin isn't supported yet! Consider installing LuckPerms as More Permission plugins will be added soon"
         send "&c&lAnd if you messed with the code or changed it to something random, Don't."
-    set {_p} to (2nd element of ((1st element of uncolored lore of event-item) split at " » "))
-    replace all "%permission%" in {_c} with {_p}
-    console command {_c}
-    remove 1 from tool's item amount
-    send "%{ks::servername}% &7» &aYou successfully claimed this voucher!"
 
 command /permvoucher <player> <text>:
     aliases: /pv, /pvoucher
     permission: ks.permvoucher.give, ks.*
-    permission message: %{ks::permmsg}%
+    permission message: %{ks::main::permmsg}%
     usage: &cUsage: /permvoucher <player> <permission>
     trigger:
-        send "%{ks::servername}% &7» &aGiven a voucher with permission &e%arg-2% &ato &e%arg-1%&a." to player
-        send "%{ks::servername}% &7» &aYou recieved a voucher with permission &e%arg-2%&a." to arg-1
+        send "%{ks::main::servername}% &7» &aGiven a voucher with permission &e%arg-2% &ato &e%arg-1%&a." to player
+        send "%{ks::main::servername}% &7» &aYou recieved a voucher with permission &e%arg-2%&a." to arg-1
         give arg-1 paper named "&e&lPERMISSION VOUCHER" with lore "&ePermission &7» &f%arg-2%"
-        set {@rvitem} to paper named "&e&lPERMISSION VOUCHER" with lore "&ePermission &7» &f%arg-2%"

@@ -1,24 +1,24 @@
 on load:
-    set {ks::spawnenabled} to true
+    set {ks::spawn::enabled} to true
 
 on unload:
-    clear {ks::spawnenabled}
+    clear {ks::spawn::enabled}
 
 command /spawn [<text>]:
     permission: ks.spawn.use
-    permission message: %{ks::permmsg}%
-    usage: %{ks::servermame}% &7» &cUsage: /spawn [spawn name] (Also you can use /spawn with no spawn name)
+    permission message: %{ks::main::permmsg}%
+    usage: %{ks::main::servername}% &7» &cUsage: /spawn [spawn name] (Also you can use /spawn with no spawn name)
     trigger:
         if arg-1 is set:    
-            teleport player to {ks::spawn.%arg-1%}
+            teleport player to {ks::spawn::location::%arg-1%}
             send "%{ks::servername}% &7» &aYou have Teleported to the spawn '%arg-1%'"
         if arg-1 is not set:
-            teleport player to {ks::spawn}
+            teleport player to {ks::spawn::loc}
             send "%{ks::servername}% &7» &aYou have Teleported to spawn"
 command /setspawn [<text>]:
     permission: ks.spawn.set
-    permission message: %{ks::permmsg}%
-    usage: %{ks::servermame}% &7» &cUsage: /setspawn [spawn name] (Also you can use /setspawn with no spawn name)
+    permission message: %{ks::main::permmsg}%
+    usage: %{ks::main::servername}% &7» &cUsage: /setspawn [spawn name] (Also you can use /setspawn with no spawn name)
     trigger:
         if arg-1 is set:
             set {ks::spawn.%arg-1%} to player's location
@@ -28,8 +28,8 @@ command /setspawn [<text>]:
 
 command /delspawn [<text>]:
     permission: ks.spawn.del
-    permission message: %{ks::permmsg}%
-    usage: %{ks::servermame}% &7» &cUsage: /delspawn [spawn name] (Also you can use /delspawn with no spawn name)
+    permission message: %{ks::main::permmsg}%
+    usage: %{ks::main::servername}% &7» &cUsage: /delspawn [spawn name] (Also you can use /delspawn with no spawn name)
     trigger:
         if arg-1 is set:
             clear {ks::spawn.%arg-1%}

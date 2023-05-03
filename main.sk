@@ -4,11 +4,13 @@ options:
 # You can change these as much as you want, and should change them because you don't want it to say "Server Name"
 
 on load:
-    set {ks::servername} to {@servername}
-    set {ks::permmsg} to %{ks::servername}% &7» {@permmsg}
-    set {ks::dupecooldown} to 0
-    set {ks::dupecooldownmessage} to "&cYou are on cooldown! Wait &e%remaining time% to use the command again"
-    set {ks::rvplugin} to LuckPerms
+    set {ks::main::version} to 1.0
+    set {ks::main::servername} to {@servername}
+    set {ks::main::permmsg} to %{ks::main::servername}% &7» {@permmsg}
+    set {ks::dupe::cooldown} to 0
+    set {ks::dupe::cooldownmessage} to "&cYou are on cooldown! Wait &e%remaining time% to use the command again"
+    set {ks::rv::plugin} to LuckPerms
+    if text from "https://pastebin.com/raw/jK9kBCXx" is not %{ks::main::version}%
 # DO NOT CHANGE THESE! These are default values and you are supposed to change them with /ks settings
 
 command /ks [<text>]:
@@ -44,7 +46,7 @@ command /ks [<text>]:
                 format slot 52 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
                 format slot 53 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
             else:
-                send "%{ks::permmsg}%"
+                send "%{ks::main::permmsg}%"
 
         if arg-1 is "help":
             if player has permission "ks.help" or "ks.*":
@@ -76,7 +78,7 @@ command /ks [<text>]:
                 format slot 52 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
                 format slot 53 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
             else:
-                send "%{ks::permmsg}%"
+                send "%{ks::main::permmsg}%"
         if arg-1 is "enabledisable":
             if player has permission "ks.enabledisable" or "ks.*":
                 open chest with 6 rows named "&c&lKrazySkripts &a&lEnable/Disable &b&lSkripts &d&lMenu" to player
@@ -107,7 +109,7 @@ command /ks [<text>]:
                 format slot 52 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
                 format slot 53 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
             else:
-                send "%{ks::permmsg}%"
+                send "%{ks::main::permmsg}%"
         if arg-1 is "credits":
             if player has permision "ks.credits" or "ks.*":
                 send "              &c&lKrazySkripts &a&lCredits                "
@@ -118,7 +120,7 @@ command /ks [<text>]:
                 send "&eSpawn Skript By KrazyKleb"
                 send "&eStaffchat Skript By KrazyKleb"
             else:
-                send "%{ks::permmsg}%"
+                send "%{ks::main::permmsg}%"
         if arg-1 is "settings":
             if player has permission "ks.settings" or "ks.*":
                 open chest with 6 rows named "&c&lKrazySkripts &a&lEnable/Disable &b&lSkripts &d&lMenu" to player
@@ -149,4 +151,4 @@ command /ks [<text>]:
                 format slot 52 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
                 format slot 53 of player with gray stained glass pane named " " to run [send "&aPlease don't click on the glass panes"]
             else:
-                send "%{ks::permmsg}%"
+                send "%{ks::main::permmsg}%"
