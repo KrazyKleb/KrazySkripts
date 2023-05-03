@@ -1,14 +1,14 @@
 on load:
-    set {ks::dupeenabled} to true
+    set {ks::dupe::enabled} to true
 
 on unload:
-    clear {ks::dupeenabled}
+    clear {ks::dupe::enabled}
 
 command /dupe:
     permission: ks.dupe.use, ks.*
     permission message: "%{ks::permmsg}%"
-    cooldown: %{ks::dupecooldown}%
-    cooldown message: %{ks::dupecooldownmessage}%
+    cooldown: %{ks::dupe::cooldown}%
+    cooldown message: %{ks::dupe::cooldownmessage}%
     cooldown bypass: ks.nodupecooldown, ks.*
     usage: &cUsage: /dupe
     trigger:

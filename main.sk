@@ -1,16 +1,18 @@
 options:
     servername: &9&lServer Name
     permmsg: &cNo Permission!
+    owner:
 # You can change these as much as you want, and should change them because you don't want it to say "Server Name"
 
 on load:
-    set {ks::main::version} to 1.0
+    set {ks::main::version} to Alpha 1.0
     set {ks::main::servername} to {@servername}
     set {ks::main::permmsg} to %{ks::main::servername}% &7» {@permmsg}
     set {ks::dupe::cooldown} to 0
     set {ks::dupe::cooldownmessage} to "&cYou are on cooldown! Wait &e%remaining time% to use the command again"
     set {ks::rv::plugin} to LuckPerms
-    if text from "https://pastebin.com/raw/jK9kBCXx" is not %{ks::main::version}%
+    if text from "https://pastebin.com/raw/jK9kBCXx" is not %{ks::main::version}%:
+        send "&cKrazySkripts is outdated, Please update your version at" to console
 # DO NOT CHANGE THESE! These are default values and you are supposed to change them with /ks settings
 
 command /ks [<text>]:
